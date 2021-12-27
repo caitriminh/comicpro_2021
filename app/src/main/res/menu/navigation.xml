@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_white"
+        app:labelVisibilityMode="labeled"
+        android:title="@string/menu_home" />
+
+    <item
+        android:id="@+id/nav_nghiepvu"
+        android:icon="@drawable/ic_nghiep_vu_white"
+        app:labelVisibilityMode="labeled"
+        android:title="@string/menu_nghiepvu" />
+
+    <item
+        android:id="@+id/nav_thongke"
+        android:icon="@drawable/ic_nghiepvu_white"
+        app:labelVisibilityMode="labeled"
+        android:title="@string/menu_thongke" />
+
+
+    <item
+        android:id="@+id/nav_danhmuc"
+        android:icon="@drawable/ic_order_detail_white"
+        app:labelVisibilityMode="labeled"
+        android:title="@string/menu_danhmuc" />
+
+    <item
+        android:id="@+id/nav_hethong"
+        android:icon="@drawable/ic_hethong_white"
+        app:labelVisibilityMode="labeled"
+        android:title="@string/menu_hethong" />
+
+
+</menu>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Motor Biker</string>
+    <string name="menu_home">Motor Biker</string>
+
+    <string name="menu_hethong">Hệ Thống</string>
+    <string name="menu_danhmuc">Danh Mục</string>
+    <string name="menu_nghiepvu">Nghiệp Vụ</string>
+    <string name="menu_thongke">Thống Kê</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

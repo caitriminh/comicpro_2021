@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Comic</string>
+    <string name="menu_home">Comic</string>
+
+    <string name="menu_hethong">Hệ Thống</string>
+    <string name="menu_danhmuc">Danh Mục</string>
+    <string name="menu_nghiepvu">Nghiệp Vụ</string>
+    <string name="menu_thongke">Thống Kê</string>
+    <string name="menu_danhsach">Danh Sách</string>
+    <string name="menu_danhsach_hinhanh">Hình Ảnh</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

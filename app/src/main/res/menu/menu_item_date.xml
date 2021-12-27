@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="saveourcar.soc.MainActivity">
+    <item
+        android:id="@+id/btnTimKiemTheoNgay"
+        android:icon="@drawable/ic_ngay_white"
+        android:title="Logout"
+        app:showAsAction="always" />
+
+</menu>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/div_container"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme"
+    android:background="@drawable/border_rectangle"
+
+    android:padding="0dp"
+    android:orientation="horizontal">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.0px"
+        android:foreground="?android:attr/selectableItemBackground"
+       >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:weightSum="1"
+            android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:id="@+id/txtId"
+                    android:text="HV001"
+                    android:gravity="center_vertical"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.8"
+                    android:gravity="center_vertical"
+                    android:textSize="13dp"
+                    android:id="@+id/txtLoaiBia"
+                    android:text="DŨNG SĨ HESMAN"
+                    android:layout_height="match_parent"/>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

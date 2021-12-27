@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="saveourcar.soc.MainActivity">
+
+    <item
+        android:id="@+id/btnLoc"
+        android:icon="@drawable/ic_loc_white"
+        android:title="Logout"
+        app:showAsAction="always" />
+
+
+
+</menu>
