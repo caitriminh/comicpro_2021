@@ -84,7 +84,11 @@ public class TenTruyen {
 
     @SerializedName("sotrang")
     @Expose
-    private Integer sotrang;
+    private String sotrang;
+
+    @SerializedName("ngayxuatban_text")
+    @Expose
+    private String ngayxuatban_text;
 
     public String getMatua() {
         return matua;
@@ -223,11 +227,11 @@ public class TenTruyen {
         this.madvt = madvt;
     }
 
-    public Integer getSotrang() {
+    public String getSotrang() {
         return sotrang;
     }
 
-    public void setSotrang(Integer sotrang) {
+    public void setSotrang(String sotrang) {
         this.sotrang = sotrang;
     }
 
@@ -245,6 +249,14 @@ public class TenTruyen {
 
     public void setSotap(Integer sotap) {
         this.sotap = sotap;
+    }
+
+    public String getNgayxuatban_text() {
+        return ngayxuatban_text;
+    }
+
+    public void setNgayxuatban_text(String ngayxuatban_text) {
+        this.ngayxuatban_text = ngayxuatban_text;
     }
 }
 

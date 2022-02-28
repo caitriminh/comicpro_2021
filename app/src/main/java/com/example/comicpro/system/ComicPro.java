@@ -39,4 +39,5 @@ public class ComicPro {
     public static Menu objMenu;
     public static Integer PhieuNhap=0;
     public static Integer PhieuXuat=0;
+    public  static String strMaTua;
 }

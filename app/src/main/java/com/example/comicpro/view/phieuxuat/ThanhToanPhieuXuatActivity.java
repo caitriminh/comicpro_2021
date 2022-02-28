@@ -37,31 +37,26 @@ public class ThanhToanPhieuXuatActivity extends AppCompatActivity {
     Context mConText;
     double dblTongTien = 0;
     String strMaKH;
-    Button btnChonDonVi, btnThanhToan;
+    Button btnThanhToan;
     EditText txtDienGiai, txtDonVi, txtDiaChi, txtSoDT;
     TextView txtTongTien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thanh_toan_phieunhap);
+        setContentView(R.layout.activity_thanh_toan_phieunhap2);
         mConText = this;
         setTitle("Thanh Toán");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         GetThongTinThanhToan();
-        btnChonDonVi = findViewById(R.id.btnChonDonVi);
+
         btnThanhToan = findViewById(R.id.btnThanhToan);
         txtDonVi = findViewById(R.id.txtDonVi);
         txtDiaChi = findViewById(R.id.txtDiaChi);
         txtSoDT = findViewById(R.id.txtSoDT);
         txtDienGiai = findViewById(R.id.txtDienGiai);
         txtTongTien = findViewById(R.id.txtTongTien);
-        btnChonDonVi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GetKhachHang();
-            }
-        });
+
 
         btnThanhToan.setOnClickListener(new View.OnClickListener() {
             @Override

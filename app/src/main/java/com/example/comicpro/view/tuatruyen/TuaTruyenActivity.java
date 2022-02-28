@@ -38,13 +38,15 @@ import retrofit2.Response;
 public class TuaTruyenActivity extends AppCompatActivity {
 
     ArrayList < TuaTruyen > lstTuaTruyen;
-    TuaTruyen tuaTruyen;
+
     //swiperefresh
     @BindView(R.id.swiperefresh)
     SwipeRefreshLayout swiperefresh;
+
     Context mContext;
     Adapter_TuaTruyen adapter;
     private Unbinder unbinder;
+
     @BindView(R.id.recycleView)
     RecyclerView recycleView;
 
@@ -80,8 +82,6 @@ public class TuaTruyenActivity extends AppCompatActivity {
         });
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -92,7 +92,6 @@ public class TuaTruyenActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     public void GetTuaTruyen() {
         ApiTuaTruyen.apiTuaTruyen.GetTuaTruyen("GET_DATA").enqueue(new Callback < List < TuaTruyen > >() {
@@ -118,7 +117,6 @@ public class TuaTruyenActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

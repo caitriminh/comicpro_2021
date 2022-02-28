@@ -88,6 +88,10 @@ public class TuaTruyen {
     @Expose
     private String loaibia;
 
+    @SerializedName("tap")
+    @Expose
+    private Integer tap;
+
     public String getMatua() {
         return matua;
     }
@@ -239,6 +243,14 @@ public class TuaTruyen {
 
     public void setGiabia(Double giabia) {
         this.giabia = giabia;
+    }
+
+    public Integer getTap() {
+        return tap;
+    }
+
+    public void setTap(Integer tap) {
+        this.tap = tap;
     }
 }
 

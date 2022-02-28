@@ -213,9 +213,6 @@ public class PhieuNhapActivity extends AppCompatActivity {
                 break;
             case R.id.btnDonHang:
                 ComicPro.PhieuNhap = 0;
-//                Intent intent2 = new Intent(PhieuNhapActivity.this, PhieuNhapTempActivity.class);
-//                startActivity(intent2);
-
                 Intent sub = new Intent(PhieuNhapActivity.this, PhieuNhapTempActivity.class);
                 sub.putExtra("name", name);
                 startActivityForResult(sub, 100);

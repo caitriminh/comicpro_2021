@@ -8,5 +8,11 @@
     <string name="menu_thongke">Thống Kê</string>
     <string name="menu_danhsach">Danh Sách</string>
     <string name="menu_danhsach_hinhanh">Hình Ảnh</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="text_signin_message">Xin chào, vui lòng đăng nhập phần mềm COMIC PRO</string>
+    <string name="hint_username">Tên đăng nhập</string>
+    <string name="hint_password">Mật khẩu</string>
+    <string name="button_sign_in">Đăng Nhập</string>
+    <string name="text_signin_social_media">Or Sign in using social media</string>
+    <string name="text_signin_signup">Don\'t have an account? <b>Sign up</b></string>
 </resources>

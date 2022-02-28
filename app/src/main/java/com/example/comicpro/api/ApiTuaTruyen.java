@@ -29,37 +29,41 @@ public interface ApiTuaTruyen {
 
     @FormUrlEncoded
     @POST("load_tuatruyen")
-    Call < List < TuaTruyen > > GetTuaTruyen(@Field("action") String action);
+    Call<List<TuaTruyen>> GetTuaTruyen(@Field("action") String action);
+
+    @FormUrlEncoded
+    @POST("load_tuatruyen_by_matua")
+    Call<List<TuaTruyen>> GetTuaTruyenByMaTua(@Field("matua") String matua);
 
     @FormUrlEncoded
     @POST("insert_tuatruyen")
-    Call < List < TuaTruyen > > Insert(@Field("tuatruyen") String tuatruyen,
-                                       @Field("maloai") String maloai,
-                                       @Field("matacgia") String matacgia,
-                                       @Field("manxb") String manxb,
-                                       @Field("maquocgia") Integer maquocgia,
-                                       @Field("sotap") Integer sotap,
-                                       @Field("namxuatban") Integer namxuatban,
-                                       @Field("taiban") Integer taiban,
-                                       @Field("nguoitd") String nguoitd);
+    Call<List<TuaTruyen>> Insert(@Field("tuatruyen") String tuatruyen,
+                                 @Field("maloai") String maloai,
+                                 @Field("matacgia") String matacgia,
+                                 @Field("manxb") String manxb,
+                                 @Field("maquocgia") Integer maquocgia,
+                                 @Field("sotap") Integer sotap,
+                                 @Field("namxuatban") Integer namxuatban,
+                                 @Field("taiban") Integer taiban,
+                                 @Field("nguoitd") String nguoitd);
 
     @FormUrlEncoded
     @POST("delete_tuatruyen")
-    Call < List < TuaTruyen > > Delete(@Field("matua") String matua);
+    Call<List<TuaTruyen>> Delete(@Field("action") String action, @Field("matua") String matua);
 
 
     @FormUrlEncoded
     @POST("update_tuatruyen")
-    Call < List < TuaTruyen > > Updare(@Field("tuatruyen") String tuatruyen,
-                                       @Field("matacgia") String matacgia,
-                                       @Field("matua") String matua,
-                                       @Field("manxb") String manxb,
-                                       @Field("maquocgia") Integer maquocgia,
-                                       @Field("sotap") Integer sotap,
-                                       @Field("namxuatban") Integer namxuatban,
-                                       @Field("taiban") Integer taiban,
-                                       @Field("ghichu") String ghichu,
-                                       @Field("nguoitd2") String nguoitd2,
-                                       @Field("theodoi") Boolean theodoi);
+    Call<List<TuaTruyen>> Update(@Field("tuatruyen") String tuatruyen,
+                                 @Field("matacgia") String matacgia,
+                                 @Field("matua") String matua,
+                                 @Field("manxb") String manxb,
+                                 @Field("maquocgia") Integer maquocgia,
+                                 @Field("sotap") Integer sotap,
+                                 @Field("namxuatban") Integer namxuatban,
+                                 @Field("taiban") Integer taiban,
+                                 @Field("ghichu") String ghichu,
+                                 @Field("nguoitd2") String nguoitd2,
+                                 @Field("theodoi") Boolean theodoi);
 
 }
