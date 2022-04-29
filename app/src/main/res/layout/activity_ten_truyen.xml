@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_marginTop="8dp"
     android:layout_marginLeft="8dp"
-    tools:context=".view.tentruyen.TenTruyenActivity">
+    tools:context="com.triminh.comicpro.view.tentruyen.TenTruyenActivity">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swiperefresh"

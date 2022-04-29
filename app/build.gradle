@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.comicpro2"
+        applicationId "com.triminh.comicpro2"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
