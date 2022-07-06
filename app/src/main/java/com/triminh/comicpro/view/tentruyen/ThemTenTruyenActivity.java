@@ -3,6 +3,7 @@ package com.triminh.comicpro.view.tentruyen;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -76,7 +77,7 @@ public class ThemTenTruyenActivity extends AppCompatActivity {
         txtQuaTang = findViewById(R.id.txtQuaTang);
         btnLuu = findViewById(R.id.btnLuu);
 
-        if (TenTruyenActivity.edit == false) {
+        if (viewTenTruyenActivity.edit == false) {
             intMaLoaiBia = ComicPro.objTuaTruyen.getMaloaibia();
             txtLoaiBia.setText(ComicPro.objTuaTruyen.getLoaibia());
             giabia = ComicPro.objTuaTruyen.getGiabia();
@@ -116,7 +117,7 @@ public class ThemTenTruyenActivity extends AppCompatActivity {
             int year = calendar.get(Calendar.YEAR);
             int month = calendar.get(Calendar.MONTH);
             int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-            DatePickerDialog datePickerDialog = new DatePickerDialog(mContext,
+            DatePickerDialog datePickerDialog = new DatePickerDialog(mContext, AlertDialog.THEME_DEVICE_DEFAULT_DARK,
                     (datePicker, year1, month1, day) -> {
 
                         calendar.set(year1, month1, day);
@@ -139,7 +140,7 @@ public class ThemTenTruyenActivity extends AppCompatActivity {
         GetDonViTinh();
 
         btnLuu.setOnClickListener(v -> {
-            if (TenTruyenActivity.edit == true) {
+            if (viewTenTruyenActivity.edit == true) {
                 Edit();
             } else {
                 Update();

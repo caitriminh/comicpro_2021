@@ -181,7 +181,6 @@
                     android:textSize="16dp"
                     app:icon="@drawable/ic_save_white"
                     app:iconGravity="textStart" />
-
             </LinearLayout>
 
         </LinearLayout>

@@ -30,13 +30,6 @@
             android:orientation="horizontal"
             android:weightSum="1.2">
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swcom"
-                android:layout_width="0dp"
-                android:gravity="left|center_vertical"
-                android:layout_height="match_parent"
-                android:layout_weight="0.15" />
-
             <TextView
                 android:id="@+id/txtNgayThang"
                 android:layout_width="0dp"
@@ -52,7 +45,7 @@
                 android:id="@+id/txtTuaTruyen"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.7"
+                android:layout_weight="0.85"
                 android:gravity="center_vertical"
                 android:text="cái"
                 android:textSize="13dp" />

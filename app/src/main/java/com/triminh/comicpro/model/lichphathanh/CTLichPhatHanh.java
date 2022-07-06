@@ -3,6 +3,8 @@ package com.triminh.comicpro.model.lichphathanh;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class CTLichPhatHanh {
 
     @SerializedName("id")
@@ -15,7 +17,7 @@ public class CTLichPhatHanh {
 
     @SerializedName("ngayphathanh")
     @Expose
-    private String ngayphathanh;
+    private Date ngayphathanh;
 
     @SerializedName("tuatruyen")
     @Expose
@@ -23,7 +25,7 @@ public class CTLichPhatHanh {
 
     @SerializedName("giabia")
     @Expose
-    private String giabia;
+    private Double giabia;
 
     @SerializedName("ghichu")
     @Expose
@@ -55,10 +57,11 @@ public class CTLichPhatHanh {
         this.malich = malich;
     }
 
-    public String getNgayphathanh() {
+    public Date getNgayphathanh() {
         return ngayphathanh;
     }
-    public void setNgayphathanh(String ngayphathanh) {
+
+    public void setNgayphathanh(Date ngayphathanh) {
         this.ngayphathanh = ngayphathanh;
     }
 
@@ -69,10 +72,11 @@ public class CTLichPhatHanh {
         this.tuatruyen = tuatruyen;
     }
 
-    public String getGiabia() {
+    public Double getGiabia() {
         return giabia;
     }
-    public void setGiabia(String giabia) {
+
+    public void setGiabia(Double giabia) {
         this.giabia = giabia;
     }
 

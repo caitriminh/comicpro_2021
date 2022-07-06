@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.comicpro.R;
 import com.triminh.comicpro.model.lichphathanh.CTLichPhatHanh;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -25,7 +27,7 @@ import butterknife.Unbinder;
 
 public class Adapter_CTLichPhatHanh extends RecyclerView.Adapter<Adapter_CTLichPhatHanh.RecyclerViewHolder> {
     private Context mContext;
-    private List< CTLichPhatHanh > data = new ArrayList<>();
+    private List<CTLichPhatHanh> data;
     private List<CTLichPhatHanh> temp = new ArrayList<>();
     private Unbinder unbinder;
 
@@ -48,17 +50,16 @@ public class Adapter_CTLichPhatHanh extends RecyclerView.Adapter<Adapter_CTLichP
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.txtNgayThang.setText(data.get(position).getNgayphathanh());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM");
+        holder.txtNgayThang.setText(formatter.format(data.get(position).getNgayphathanh()));
         holder.txtTuaTruyen.setText(data.get(position).getTuatruyen());
-        holder.txtGiaBia.setText(data.get(position).getGiabia().toString());
-        Integer damua=data.get(position).getDamua();
-        if(damua==1){
+        DecimalFormat formatDouble = new DecimalFormat("#,##0");
+        holder.txtGiaBia.setText(formatDouble.format(data.get(position).getGiabia()));
+        Integer damua = data.get(position).getDamua();
+        if (damua == 1) {
             holder.div_container3.setBackgroundColor(mContext.getResources().getColor(R.color.color_damua));
-            holder.swcom.setChecked(true);
-        }
-        else{
+        } else {
             holder.div_container3.setBackgroundColor(mContext.getResources().getColor(R.color.color_chuamua));
-            holder.swcom.setChecked(false);
         }
     }
 
@@ -68,8 +69,7 @@ public class Adapter_CTLichPhatHanh extends RecyclerView.Adapter<Adapter_CTLichP
     }
 
 
-
-    public class RecyclerViewHolder extends  RecyclerView.ViewHolder {
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.txtNgayThang)
         TextView txtNgayThang;
@@ -82,9 +82,6 @@ public class Adapter_CTLichPhatHanh extends RecyclerView.Adapter<Adapter_CTLichP
 
         @BindView(R.id.div_container3)
         LinearLayout div_container3;
-
-        @BindView(R.id.swcom)
-        SwitchCompat swcom;
 
         public RecyclerViewHolder(View itemView) {
             super(itemView);
@@ -99,7 +96,7 @@ public class Adapter_CTLichPhatHanh extends RecyclerView.Adapter<Adapter_CTLichP
             data.addAll(temp);
         } else {
             for (CTLichPhatHanh ctLichPhatHanh : temp) {
-                if ( String.valueOf(ctLichPhatHanh.getTuatruyen()).toLowerCase(Locale.getDefault()).contains(charText)
+                if (String.valueOf(ctLichPhatHanh.getTuatruyen()).toLowerCase(Locale.getDefault()).contains(charText)
                 ) {
                     data.add(ctLichPhatHanh);
                 }

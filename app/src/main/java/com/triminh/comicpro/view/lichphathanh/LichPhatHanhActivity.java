@@ -72,7 +72,7 @@ public class LichPhatHanhActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         intNam = calendar.get(Calendar.YEAR);
 
-        setTitle("Lịch Phát Hành Năm " + intNam);
+        setTitle("Lịch Phát Hành " + intNam);
         GetLichPhatHanh(strAction);
         recycleView.addOnItemTouchListener(new RecyclerTouchListener(mContext,
                 recycleView, new ClickListener() {

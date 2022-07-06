@@ -23,7 +23,7 @@ import com.triminh.comicpro.system.ClickListener;
 import com.triminh.comicpro.system.ComicPro;
 import com.triminh.comicpro.system.RecyclerTouchListener;
 import com.triminh.comicpro.system.TM_Toast;
-import com.triminh.comicpro.view.tentruyen.TenTruyenActivity;
+import com.triminh.comicpro.view.tentruyen.viewTenTruyenActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +39,6 @@ public class TuaTruyenActivity extends AppCompatActivity {
 
     ArrayList <TuaTruyen> lstTuaTruyen;
 
-    //swiperefresh
-    @BindView(R.id.swiperefresh)
-    SwipeRefreshLayout swiperefresh;
 
     Context mContext;
     Adapter_TuaTruyen adapter;
@@ -49,6 +46,11 @@ public class TuaTruyenActivity extends AppCompatActivity {
 
     @BindView(R.id.recycleView)
     RecyclerView recycleView;
+
+    //swiperefresh
+    @BindView(R.id.swiperefresh)
+    SwipeRefreshLayout swiperefresh;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class TuaTruyenActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 ComicPro.objTuaTruyen = lstTuaTruyen.get(position);
-                Intent intent = new Intent(TuaTruyenActivity.this, TenTruyenActivity.class);
+                Intent intent = new Intent(TuaTruyenActivity.this, viewTenTruyenActivity.class);
                 startActivity(intent);
             }
 
@@ -99,7 +101,7 @@ public class TuaTruyenActivity extends AppCompatActivity {
             public void onResponse(Call < List < TuaTruyen > > call, Response < List < TuaTruyen > > response) {
                 List < TuaTruyen > tuaTruyens = response.body();
                 if (tuaTruyens.size() > 0) {
-                    lstTuaTruyen = new ArrayList < TuaTruyen >();
+                    lstTuaTruyen = new ArrayList<>();
                     lstTuaTruyen.addAll(tuaTruyens);
                     adapter = new Adapter_TuaTruyen(mContext, lstTuaTruyen);
 

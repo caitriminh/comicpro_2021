@@ -19,7 +19,7 @@ import com.triminh.comicpro.system.ClickListener;
 import com.triminh.comicpro.system.ComicPro;
 import com.triminh.comicpro.system.RecyclerTouchListener;
 import com.triminh.comicpro.system.TM_Toast;
-import com.triminh.comicpro.view.tentruyen.TenTruyenActivity;
+import com.triminh.comicpro.view.tentruyen.viewTenTruyenActivity;
 
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class TuaTruyenNXBActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 ComicPro.objTuaTruyen = lstTuaTruyen.get(position);
-                Intent intent = new Intent(mContext, TenTruyenActivity.class);
+                Intent intent = new Intent(mContext, viewTenTruyenActivity.class);
                 startActivity(intent);
             }
 

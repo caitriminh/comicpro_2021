@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name="com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.triminh.comicpro.view.lichphathanh.ThemChiTietLichPhatHanhActivity"
             android:exported="false" />
@@ -24,7 +22,6 @@
         <activity
             android:name="com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity"
             android:exported="false" />
-        <activity android:name="com.triminh.comicpro.view.tentruyen.TenTruyenActivity" />
         <activity android:name="com.triminh.comicpro.system.ImagePickerActivity" />
         <activity android:name="com.triminh.comicpro.view.danhmuc.DonViTinhActivity" />
         <activity android:name="com.triminh.comicpro.view.moinhat.MoiNhatActivity" />
@@ -68,11 +65,15 @@
         <activity android:name="com.triminh.comicpro.view.thongke.TenTruyenTheoNCCActivity" />
         <activity android:name="com.triminh.comicpro.view.tusach.TuSachActivity" />
         <activity android:name="com.triminh.comicpro.view.tusach.TuSachChiTietActivity" />
+        <activity android:name="com.triminh.comicpro.view.tentruyen.viewTenTruyenActivity"/>
+        <activity android:name="com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.triminh.comicpro.view.hethong.LoginActivity">
+        <activity
+            android:name="com.triminh.comicpro.view.hethong.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

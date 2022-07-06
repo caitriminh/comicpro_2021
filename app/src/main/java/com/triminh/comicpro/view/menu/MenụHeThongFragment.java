@@ -23,6 +23,7 @@ import com.triminh.comicpro.model.menu.Menu;
 import com.triminh.comicpro.system.ClickListener;
 import com.triminh.comicpro.system.ComicPro;
 import com.triminh.comicpro.system.RecyclerTouchListener;
+import com.triminh.comicpro.system.TM_Toast;
 import com.triminh.comicpro.view.hethong.LoginActivity;
 import com.triminh.comicpro.view.nguoidung.NguoiDungActivity;
 import com.triminh.comicpro.view.tonkho.KetChuyenActivity;
@@ -43,7 +44,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class MenụHeThongFragment extends Fragment {
 
-    ArrayList < Menu > lstMenu;
+    ArrayList<Menu> lstMenu;
     Adapter_Menu adapter;
     @BindView(R.id.recycleView)
     RecyclerView recycleView;
@@ -88,8 +89,7 @@ public class MenụHeThongFragment extends Fragment {
                 } else if (ComicPro.objMenu.getMamenu().equals("21")) {
                     Intent intent = new Intent(mContext, KetChuyenActivity.class);
                     startActivity(intent);
-                }
-                else if (ComicPro.objMenu.getMamenu().equals("25")) {
+                } else if (ComicPro.objMenu.getMamenu().equals("25")) {
                     BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder(getActivity())
                             .setTitle("Xác Nhận")
                             .setMessage("Bạn có muốn thoát khỏi phần mềm không?")
@@ -126,12 +126,12 @@ public class MenụHeThongFragment extends Fragment {
     }
 
     private void GetMenu() {
-        ApiMenu.apiMenu.Menu(4).enqueue(new Callback < List < Menu > >() {
+        ApiMenu.apiMenu.Menu(4).enqueue(new Callback<List<Menu>>() {
             @Override
-            public void onResponse(Call < List < Menu > > call, Response < List < Menu > > response) {
-                List < Menu > menus = response.body();
-                if (menus != null) {
-                    lstMenu = new ArrayList < Menu >();
+            public void onResponse(Call<List<Menu>> call, Response<List<Menu>> response) {
+                List<Menu> menus = response.body();
+                if (menus.size() > 0) {
+                    lstMenu = new ArrayList<>();
                     lstMenu.addAll(menus);
                     adapter = new Adapter_Menu(mContext, lstMenu);
                     recycleView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -140,8 +140,8 @@ public class MenụHeThongFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call < List < Menu > > call, Throwable t) {
-                Toast.makeText(mContext, "Call Api Error", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<Menu>> call, Throwable t) {
+                TM_Toast.makeText(mContext, "Call Api Error", Toast.LENGTH_SHORT).show();
             }
         });
     }

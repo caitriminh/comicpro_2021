@@ -81,8 +81,11 @@
                     android:layout_marginEnd="8dp"
                     android:layout_weight="0.5"
                     android:gravity="center"
-                    android:text="Xác Nhận"
-                    android:textSize="16dp" />
+                    android:text="Lưu"
+                    android:textSize="16dp"
+                    app:icon="@drawable/ic_save_white"
+                    app:iconGravity="textStart" />
+
 
             </LinearLayout>
 

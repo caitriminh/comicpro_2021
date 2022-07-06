@@ -1,6 +1,7 @@
 package com.triminh.comicpro.view.lichphathanh;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -76,14 +77,13 @@ public class CTLichPhatHanhActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view, int position) {
-                CTLichPhatHanh ctLichPhatHanh = lstCTLichPhatHanh.get(position);
-                UpdateDaMua(ctLichPhatHanh, position);
+
             }
 
             @Override
             public void onLongClick(View view, int position) {
-                CTLichPhatHanh ctLichPhatHanh = lstCTLichPhatHanh.get(position);
-                Delete(ctLichPhatHanh, position);
+                ComicPro.objCTLichPhatHanh = lstCTLichPhatHanh.get(position);
+                GetChucNang(position);
             }
         }));
 
@@ -98,6 +98,7 @@ public class CTLichPhatHanhActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.btnThem:
+                ComicPro.edit = false;
                 Intent sub = new Intent(mContext, ThemChiTietLichPhatHanhActivity.class);
                 sub.putExtra("name", name);
                 startActivityForResult(sub, 100);
@@ -201,6 +202,32 @@ public class CTLichPhatHanhActivity extends AppCompatActivity {
                 })
                 .build();
         mBottomSheetDialog.show();
+    }
+
+    public void GetChucNang(int position) {
+        final String[] chucnangs = {"Đã mua", "Sửa", "Xóa", "Hủy"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle("Chức năng");
+        builder.setCancelable(false);
+
+        builder.setItems(chucnangs, (dialogInterface, i1) -> {
+            String chucnang = chucnangs[i1];
+            dialogInterface.dismiss();
+            if (chucnang.equals("Đã mua")) {
+                CTLichPhatHanh ctLichPhatHanh = lstCTLichPhatHanh.get(position);
+                UpdateDaMua(ctLichPhatHanh, position);
+            } else if (chucnang.equals("Sửa")) {
+                ComicPro.edit = true;
+                Intent sub = new Intent(mContext, ThemChiTietLichPhatHanhActivity.class);
+                sub.putExtra("name", "name");
+                startActivityForResult(sub, 100);
+            } else if (chucnang.equals("Xóa")) {
+                CTLichPhatHanh ctLichPhatHanh = lstCTLichPhatHanh.get(position);
+                Delete(ctLichPhatHanh, position);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

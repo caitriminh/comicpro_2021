@@ -36,8 +36,8 @@ import com.triminh.comicpro.system.ClickListener;
 import com.triminh.comicpro.system.ComicPro;
 import com.triminh.comicpro.system.RecyclerTouchListener;
 import com.triminh.comicpro.system.TM_Toast;
-import com.triminh.comicpro.view.tentruyen.TenTruyenActivity;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
+import com.triminh.comicpro.view.tentruyen.viewTenTruyenActivity;
 
 
 import java.util.ArrayList;
@@ -57,9 +57,8 @@ public class TuaTruyenFragment extends Fragment {
 
     Adapter_TuaTruyen adapter;
 
-    private Unbinder unbinder;
-    @BindView(R.id.recycleView)
-    RecyclerView recycleView;
+    @BindView(R.id.recycleViewTuaTruyen)
+    RecyclerView recycleViewTuaTruyen;
 
     //swiperefresh
     @BindView(R.id.swiperefresh)
@@ -87,7 +86,7 @@ public class TuaTruyenFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tuatruyen, container, false);
-        unbinder = ButterKnife.bind(this, rootView);
+        Unbinder unbinder = ButterKnife.bind(this, rootView);
         return rootView;
     }
 
@@ -95,17 +94,16 @@ public class TuaTruyenFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         GetTuaTruyen(straction);
-        recycleView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(),
-                recycleView, new ClickListener() {
+        recycleViewTuaTruyen.addOnItemTouchListener(new RecyclerTouchListener(getActivity(),
+                recycleViewTuaTruyen, new ClickListener() {
 
 
             @Override
             public void onClick(View view, int position) {
-
                 ComicPro.objTuaTruyen = lstTuaTruyen.get(position);
                 ComicPro.PhieuNhap = 0;
                 ComicPro.PhieuXuat = 0;
-                Intent intent = new Intent(getActivity(), TenTruyenActivity.class);
+                Intent intent = new Intent(getActivity(), viewTenTruyenActivity.class);
                 startActivity(intent);
             }
 
@@ -130,8 +128,8 @@ public class TuaTruyenFragment extends Fragment {
                     lstTuaTruyen.addAll(tuaTruyens);
                     adapter = new Adapter_TuaTruyen(getActivity(), lstTuaTruyen);
 
-                    recycleView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                    recycleView.setAdapter(adapter);
+                    recycleViewTuaTruyen.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                    recycleViewTuaTruyen.setAdapter(adapter);
                     //Làm mới dữ liệu
                     swiperefresh.setRefreshing(false);
                 }
