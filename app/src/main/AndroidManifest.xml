@@ -19,9 +19,7 @@
         <activity
             android:name="com.triminh.comicpro.view.lichphathanh.ThemLichPhatHanhActivity"
             android:exported="false" />
-        <activity
-            android:name="com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity"
-            android:exported="false" />
+
         <activity android:name="com.triminh.comicpro.system.ImagePickerActivity" />
         <activity android:name="com.triminh.comicpro.view.danhmuc.DonViTinhActivity" />
         <activity android:name="com.triminh.comicpro.view.moinhat.MoiNhatActivity" />
@@ -40,7 +38,7 @@
         <activity android:name="com.triminh.comicpro.view.danhmuc.LoaiTruyenActivity" />
         <activity android:name="com.triminh.comicpro.view.danhmuc.TuaTruyenTacGiaActivity" />
         <activity android:name="com.triminh.comicpro.view.lichphathanh.CTLichPhatHanhActivity" />
-        <activity android:name="com.triminh.comicpro.view.tuatruyen.TuaTruyenActivity" />
+
         <activity android:name="com.triminh.comicpro.view.phieunhap.PhieuNhapTempActivity" />
         <activity android:name="com.triminh.comicpro.view.phieunhap.ThanhToanPhieuNhapActivity" />
         <activity android:name="com.triminh.comicpro.view.tonkho.KetChuyenActivity" />
@@ -65,8 +63,10 @@
         <activity android:name="com.triminh.comicpro.view.thongke.TenTruyenTheoNCCActivity" />
         <activity android:name="com.triminh.comicpro.view.tusach.TuSachActivity" />
         <activity android:name="com.triminh.comicpro.view.tusach.TuSachChiTietActivity" />
-        <activity android:name="com.triminh.comicpro.view.tentruyen.viewTenTruyenActivity"/>
-        <activity android:name="com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity"/>
+        <activity android:name="com.triminh.comicpro.view.tentruyen.viewTenTruyenActivity" />
+        <activity android:name="com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity" />
+        <activity android:name="com.triminh.comicpro.view.tuatruyen.TuaTruyenActivity" />
+        <activity android:name="com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

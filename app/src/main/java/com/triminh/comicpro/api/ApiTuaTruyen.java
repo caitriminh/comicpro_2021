@@ -54,9 +54,9 @@ public interface ApiTuaTruyen {
 
     @FormUrlEncoded
     @POST("update_tuatruyen")
-    Call<List<TuaTruyen>> Update(@Field("tuatruyen") String tuatruyen,
+    Call<List<TuaTruyen>> Update(@Field("matua") String matua,
+                                 @Field("tuatruyen") String tuatruyen,
                                  @Field("matacgia") String matacgia,
-                                 @Field("matua") String matua,
                                  @Field("manxb") String manxb,
                                  @Field("maquocgia") Integer maquocgia,
                                  @Field("sotap") Integer sotap,

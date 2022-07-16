@@ -1,5 +1,10 @@
 package com.triminh.comicpro.view.tentruyen;
 
+import static com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity.load;
+import static com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity.strGiaBia;
+import static com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity.strNgayXuatBan;
+import static com.triminh.comicpro.view.tentruyen.ThemTenTruyenActivity.strTenTruyen;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,12 +12,15 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 
 import com.example.comicpro.R;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
@@ -104,7 +112,7 @@ public class viewTenTruyenActivity extends AppCompatActivity {
                     adapter = new Adapter_TenTruyen(mContext, lstTenTruyen);
                     recycleView.setLayoutManager(new GridLayoutManager(mContext, 2));
                     recycleView.setAdapter(adapter);
-                    mIntentListener = adapter;
+//                    mIntentListener = adapter;
                     //Làm mới dữ liệu
                     swiperefresh.setRefreshing(false);
                 }
@@ -209,6 +217,7 @@ public class viewTenTruyenActivity extends AppCompatActivity {
             } else if (chucnang.equals("Upload ảnh")) {
                 launchGalleryIntent();
             } else if (chucnang.equals("Sửa")) {
+                position_temp = position;
                 edit = true;
                 Intent sub = new Intent(mContext, ThemTenTruyenActivity.class);
                 sub.putExtra("name", name);
@@ -232,7 +241,48 @@ public class viewTenTruyenActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search_item, menu);
         getMenuInflater().inflate(R.menu.menu_item_add, menu);
+        SearchManager searchManager = (SearchManager) this.getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView = (SearchView) menu.findItem(R.id.menuSearch).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
+        searchView.setQueryHint("Tìm kiếm...");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (adapter == null) {
+                    Log.w("adapter null", "null");
+                }
+                adapter.filter(newText);
+                return false;
+            }
+        });
         return true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == 101) {
+                if (load == false) {
+                    return;
+                }
+                if (edit == true) {
+                    lstTenTruyen.get(position_temp).setTentruyen(strTenTruyen);
+                    lstTenTruyen.get(position_temp).setNgayxuatban_text("Ngày xuất bản: " + strNgayXuatBan);
+                    //lstTenTruyen.get(position_temp).setGiabia("Giá bìa: " + strGiaBia);
+                    adapter.notifyItemChanged(position_temp);
+                } else {
+                    GetTenTruyen();
+                }
+
+            }
+        }
     }
 }

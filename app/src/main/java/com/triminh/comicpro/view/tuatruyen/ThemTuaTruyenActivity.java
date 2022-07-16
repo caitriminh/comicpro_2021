@@ -54,7 +54,7 @@ public class ThemTuaTruyenActivity extends AppCompatActivity {
     ArrayAdapter adapterXuatXu;
 
     static String strMaNXB, strMatacgia, strMaloaitruyen, strSoTap, strTuaTruyen;
-
+    static String strTenTG;
     Integer manuoc, namxuatban, taiban, sotap;
     boolean theodoi = true;
 
@@ -343,31 +343,29 @@ public class ThemTuaTruyenActivity extends AppCompatActivity {
             taiban = Integer.parseInt(txtTaiBan.getText().toString());
         }
 
-        ApiTuaTruyen.apiTuaTruyen.Update(txtTuaTruyen.getText().toString(), strMatacgia, ComicPro.strMaTua, strMaNXB, manuoc, Integer.parseInt(txtSoTap.getText().toString()), Integer.parseInt(txtNamXuatBan.getText().toString()), Integer.parseInt(txtTaiBan.getText().toString()), "", ComicPro.tendangnhap, theodoi).enqueue(new Callback<List<TuaTruyen>>() {
+        ApiTuaTruyen.apiTuaTruyen.Update(ComicPro.strMaTua, txtTuaTruyen.getText().toString(), strMatacgia, strMaNXB, manuoc, Integer.parseInt(txtSoTap.getText().toString()), Integer.parseInt(txtNamXuatBan.getText().toString()), Integer.parseInt(txtTaiBan.getText().toString()), "", ComicPro.tendangnhap, theodoi).enqueue(new Callback<List<TuaTruyen>>() {
             @Override
             public void onResponse(Call<List<TuaTruyen>> call, Response<List<TuaTruyen>> response) {
                 List<TuaTruyen> tuaTruyens = response.body();
-                if (tuaTruyens != null) {
+                if (tuaTruyens.size() > 0) {
+                    TM_Toast.makeText(mContext, "Cập nhật thành công", TM_Toast.LENGTH_LONG, TM_Toast.SUCCESS, false).show();
+                    //Đòng và quay trở lại
+                    strSoTap = txtSoTap.getText().toString();
+                    strTuaTruyen = txtTuaTruyen.getText().toString();
+                    strTenTG=txtTacGia.getText().toString();
 
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("name", "tuatruyen");
+                    setResult(Activity.RESULT_OK, resultIntent);
+                    finish();
                 }
             }
 
             @Override
             public void onFailure(Call<List<TuaTruyen>> call, Throwable t) {
-
-                //TM_Toast.makeText(mContext, "Call API fail", TM_Toast.LENGTH_LONG, TM_Toast.ERROR, false).show();
+                TM_Toast.makeText(mContext, "Call API fail", TM_Toast.LENGTH_LONG, TM_Toast.ERROR, false).show();
             }
         });
-
-        TM_Toast.makeText(mContext, "Cập nhật thành công", TM_Toast.LENGTH_LONG, TM_Toast.SUCCESS, false).show();
-        //Đòng và quay trở lại
-        strSoTap = txtSoTap.getText().toString();
-        strTuaTruyen=txtTuaTruyen.getText().toString();
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("name", "tuatruyen");
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
-
     }
 
     public void GetTuaTruyen() {

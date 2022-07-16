@@ -2,6 +2,7 @@ package com.triminh.comicpro.view.tuatruyen;
 
 import static com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity.strMatacgia;
 import static com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity.strSoTap;
+import static com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity.strTenTG;
 import static com.triminh.comicpro.view.tuatruyen.ThemTuaTruyenActivity.strTuaTruyen;
 
 import android.app.Activity;
@@ -53,23 +54,16 @@ import retrofit2.Response;
 public class TuaTruyenFragment extends Fragment {
     ArrayList<TuaTruyen> lstTuaTruyen;
     TuaTruyen tuaTruyen;
-
-
     Adapter_TuaTruyen adapter;
 
-    @BindView(R.id.recycleViewTuaTruyen)
-    RecyclerView recycleViewTuaTruyen;
-
+    @BindView(R.id.recycleView)
+    RecyclerView recycleView;
     //swiperefresh
     @BindView(R.id.swiperefresh)
     SwipeRefreshLayout swiperefresh;
-
     static boolean edit = false;
-
     public String straction = "GET_DATA", name = "tuatruyen";
     Integer position_temp;
-
-
     Context mContext;
 
     @Override
@@ -94,8 +88,8 @@ public class TuaTruyenFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         GetTuaTruyen(straction);
-        recycleViewTuaTruyen.addOnItemTouchListener(new RecyclerTouchListener(getActivity(),
-                recycleViewTuaTruyen, new ClickListener() {
+        recycleView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(),
+                recycleView, new ClickListener() {
 
 
             @Override
@@ -128,8 +122,8 @@ public class TuaTruyenFragment extends Fragment {
                     lstTuaTruyen.addAll(tuaTruyens);
                     adapter = new Adapter_TuaTruyen(getActivity(), lstTuaTruyen);
 
-                    recycleViewTuaTruyen.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                    recycleViewTuaTruyen.setAdapter(adapter);
+                    recycleView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                    recycleView.setAdapter(adapter);
                     //Làm mới dữ liệu
                     swiperefresh.setRefreshing(false);
                 }
@@ -142,7 +136,6 @@ public class TuaTruyenFragment extends Fragment {
             }
         });
     }
-
 
     private void Delete(final TuaTruyen tuaTruyen, final int position) {
         BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder((Activity) mContext)
@@ -269,7 +262,7 @@ public class TuaTruyenFragment extends Fragment {
             if (requestCode == 100) {
                 if (edit == true) {
                     lstTuaTruyen.get(position_temp).setTuatruyen(strTuaTruyen);
-                    lstTuaTruyen.get(position_temp).setTacgia(strMatacgia);
+                    lstTuaTruyen.get(position_temp).setTacgia(strTenTG);
                     lstTuaTruyen.get(position_temp).setSotap(strSoTap);
                     adapter.notifyItemChanged(position_temp);
                 } else {

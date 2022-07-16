@@ -52,6 +52,7 @@ public class ThemTenTruyenActivity extends AppCompatActivity {
     double giabia;
     String strMaQuaTang, strNgayThang = "";
     static boolean load = false;
+    static String strTenTruyen, strNgayXuatBan, strGiaBia;
 
     ArrayAdapter adapterLoaiBia;
     ArrayAdapter adapterDonViTinh;
@@ -321,7 +322,7 @@ public class ThemTenTruyenActivity extends AppCompatActivity {
             giabia = 0.0;
         } else {
             String a = String.valueOf(txtGiaBia.getText());
-            giabia = Double.parseDouble(a.replace(".", ""));
+            giabia = Double.parseDouble(a.replace(",", ""));
             // giabia = Double.parseDouble(txtGiaBia.getText().toString());
         }
         if (txtSoTrang.getText().toString().equals("")) {
@@ -336,10 +337,12 @@ public class ThemTenTruyenActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<TenTruyen>> call, Response<List<TenTruyen>> response) {
                 List<TenTruyen> tenTruyens = response.body();
-                if (tenTruyens != null) {
+                if (tenTruyens.size() > 0) {
                     load = true;
-                    ComicPro.objTenTruyen = tenTruyens.get(0);
                     TM_Toast.makeText(mContext, "Cập nhật tên truyện (" + txtTenTruyen.getText() + ") thành công.", TM_Toast.LENGTH_LONG, TM_Toast.SUCCESS, false).show();
+                    strTenTruyen = txtTenTruyen.getText().toString();
+                    strNgayXuatBan = txtNgayXuatBan.getText().toString();
+                    strGiaBia = txtGiaBia.getText().toString();
                     //Đòng và quay trở lại
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("name", "tentruyen");
