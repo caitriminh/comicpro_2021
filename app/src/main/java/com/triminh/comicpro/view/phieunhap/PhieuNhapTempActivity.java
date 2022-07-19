@@ -40,7 +40,7 @@ import retrofit2.Response;
 
 public class PhieuNhapTempActivity extends AppCompatActivity {
 
-    List <NhapXuatTemp> lstNhapXuatTemp;
+    List<NhapXuatTemp> lstNhapXuatTemp;
     Adapter_PhieuNhapTemp adapter;
 
     private Unbinder unbinder;
@@ -108,10 +108,10 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
     }
 
     public void GetThanhToan() {
-        ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("GET_DATA", 0, "", 0, 0.0,  "",0,"","").enqueue(new Callback < List < NhapXuatTemp > >() {
+        ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("GET_DATA", 0, "", 0, 0.0, "", 0, "", "").enqueue(new Callback<List<NhapXuatTemp>>() {
             @Override
-            public void onResponse(Call < List < NhapXuatTemp > > call, Response < List < NhapXuatTemp > > response) {
-                List < NhapXuatTemp > nhapXuatTemps = response.body();
+            public void onResponse(Call<List<NhapXuatTemp>> call, Response<List<NhapXuatTemp>> response) {
+                List<NhapXuatTemp> nhapXuatTemps = response.body();
                 if (nhapXuatTemps.size() > 0) {
                     Intent intent = new Intent(PhieuNhapTempActivity.this, ThanhToanPhieuNhapActivity.class);
                     startActivityForResult(intent, THANHTOAN_ACTIVITY_REQUEST_CODE);
@@ -123,19 +123,19 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call < List < NhapXuatTemp > > call, Throwable t) {
+            public void onFailure(Call<List<NhapXuatTemp>> call, Throwable t) {
                 TM_Toast.makeText(PhieuNhapTempActivity.this, "Call API fail.", TM_Toast.LENGTH_LONG, TM_Toast.ERROR, false).show();
             }
         });
     }
 
     private void GetPhieuNhapTemp() {
-        ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("GET_DATA", 0, "", 0, 0.0, ComicPro.tendangnhap, 0,"","").enqueue(new Callback < List < NhapXuatTemp > >() {
+        ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("GET_DATA", 0, "", 0, 0.0, ComicPro.tendangnhap, 0, "", "").enqueue(new Callback<List<NhapXuatTemp>>() {
             @Override
-            public void onResponse(Call < List < NhapXuatTemp > > call, Response < List < NhapXuatTemp > > response) {
-                List < NhapXuatTemp > nhapXuatTemps = response.body();
+            public void onResponse(Call<List<NhapXuatTemp>> call, Response<List<NhapXuatTemp>> response) {
+                List<NhapXuatTemp> nhapXuatTemps = response.body();
                 if (nhapXuatTemps.size() > 0) {
-                    lstNhapXuatTemp = new ArrayList < NhapXuatTemp >();
+                    lstNhapXuatTemp = new ArrayList<NhapXuatTemp>();
                     lstNhapXuatTemp.addAll(nhapXuatTemps);
                     adapter = new Adapter_PhieuNhapTemp(mConText, lstNhapXuatTemp);
 
@@ -148,7 +148,7 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call < List < NhapXuatTemp > > call, Throwable t) {
+            public void onFailure(Call<List<NhapXuatTemp>> call, Throwable t) {
                 TM_Toast.makeText(getApplication(), "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
             }
         });
@@ -163,10 +163,10 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
                     @Override
                     public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
 
-                        ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("DELETE", nhapXuatTemp.getId(), "", 0, 0.0, "", 0,"","").enqueue(new Callback < List < NhapXuatTemp > >() {
+                        ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("DELETE", nhapXuatTemp.getId(), "", 0, 0.0, "", 0, "", "").enqueue(new Callback<List<NhapXuatTemp>>() {
                             @Override
-                            public void onResponse(Call < List < NhapXuatTemp > > call, Response < List < NhapXuatTemp > > response) {
-                                List < NhapXuatTemp > status = response.body();
+                            public void onResponse(Call<List<NhapXuatTemp>> call, Response<List<NhapXuatTemp>> response) {
+                                List<NhapXuatTemp> status = response.body();
                                 if (status != null) {
                                     lstNhapXuatTemp.remove(position);
                                     adapter.notifyDataSetChanged();
@@ -178,7 +178,7 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
                             }
 
                             @Override
-                            public void onFailure(Call < List < NhapXuatTemp > > call, Throwable t) {
+                            public void onFailure(Call<List<NhapXuatTemp>> call, Throwable t) {
                                 TM_Toast.makeText(getApplication(), "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
                             }
                         });
@@ -228,11 +228,11 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
                     TM_Toast.makeText(getApplication(), "Vui lòng nhập vào đơn giá.", TM_Toast.LENGTH_LONG, TM_Toast.WARNING, false).show();
                     return;
                 }
-                ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("UPDATE", nhapXuatTemp.getId(), "", Integer.parseInt(txtSoLuong.getText().toString()), Double.parseDouble(txtGiaBan.getText().toString()), "", 0,"","").enqueue(new Callback < List < NhapXuatTemp > >() {
+                ApiNhapXuatTemp.apiNhapXuatTemp.NhapXuatTemp("UPDATE", nhapXuatTemp.getId(), "", Integer.parseInt(txtSoLuong.getText().toString()), Double.parseDouble(txtGiaBan.getText().toString()), "", 0, "", "").enqueue(new Callback<List<NhapXuatTemp>>() {
                     @Override
-                    public void onResponse(Call < List < NhapXuatTemp > > call, Response < List < NhapXuatTemp > > response) {
-                        List < NhapXuatTemp > nhapXuatTemps = response.body();
-                        if (nhapXuatTemp != null) {
+                    public void onResponse(Call<List<NhapXuatTemp>> call, Response<List<NhapXuatTemp>> response) {
+                        List<NhapXuatTemp> nhapXuatTemps = response.body();
+                        if (nhapXuatTemps != null) {
                             lstNhapXuatTemp.get(position).setDongia(Double.parseDouble(txtGiaBan.getText().toString()));
                             lstNhapXuatTemp.get(position).setSoluong(Integer.parseInt(txtSoLuong.getText().toString()));
                             adapter.notifyDataSetChanged();
@@ -241,7 +241,7 @@ public class PhieuNhapTempActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call < List < NhapXuatTemp > > call, Throwable t) {
+                    public void onFailure(Call<List<NhapXuatTemp>> call, Throwable t) {
                         TM_Toast.makeText(mConText, "Call API fail.", TM_Toast.LENGTH_SHORT, TM_Toast.ERROR, false).show();
                     }
                 });
